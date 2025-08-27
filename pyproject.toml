@@ -1,0 +1,36 @@
+[build-system]
+requires = ["setuptools>=68", "wheel"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "garmentgen"
+version = "0.1.0"
+description = "Generate realistic garments aligned to body pose using ControlNet, with transparent background output."
+readme = "README.md"
+requires-python = ">=3.10"
+license = {text = "MIT"}
+authors = [{name = "AI Assistant"}]
+dependencies = [
+  "torch==2.4.1",
+  "diffusers==0.30.0",
+  "transformers==4.45.2",
+  "accelerate==0.34.2",
+  "safetensors==0.4.5",
+  "Pillow==10.4.0",
+  "opencv-python-headless==4.10.0.84",
+  "numpy==1.26.4",
+  "rembg==2.0.57",
+  "onnxruntime==1.19.2",
+  "huggingface-hub==0.24.7",
+  "controlnet-aux==0.0.9"
+]
+
+[project.scripts]
+garmentgen = "garmentgen.cli:main"
+
+[tool.setuptools]
+package-dir = {"" = "src"}
+
+[tool.setuptools.packages.find]
+where = ["src"]
+
